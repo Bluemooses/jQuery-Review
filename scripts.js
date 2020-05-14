@@ -1,25 +1,29 @@
-$(document).ready(onReady); //second event of code running 
+// second event code runs at 
+$(document).ready(onReady);
 
-function onReady(){
+function onReady() {
     console.log('jQuery is loaded');
-    $(".Hello").append( 'Welcome to my Page!');
-    $("#hello").addClass('blue');
-    $('#submit').on('click', handleSubmit); 
+    $('#hello').append('Welcome to my Page!');
+    // $('#hello').css('color', 'red');
+    $('#hello').addClass('blue');
+    $('#submit').on('click', handleSubmit);
     $('#wrapper').on('click', '.extraBtn', handleClick);
-    console.log("hello"); //run first because it runs when the scripts loads.
-};
-
-function handleSubmit(){
-    console.log('Button clicked!');
-    let firstName = $('#firstName').val(); //getter
-    console.log(firstName);//uses our variable 
-   
-    $('#wrapper').append('< button class = "extraBtn" > click me < /button>');
-    $('#firstName').val('YAY'); //setter
 }
 
+// 1st event code runs at
+console.log("hello");
 
-function handleClick(){
-    console.log("button clicked"); 
-    $('#wrapper').append('< button class = "extraBtn" > click me < /button>');
-};
+function handleClick() {
+    console.log("button clicked!!");
+       $(this).addClass('blue');
+}
+
+function handleSubmit() {
+    let firstName = $('#firstName').val();
+    // getter
+    console.log(firstName);
+
+    $('#firstName').val('YAY!!');
+    // setter
+    $('#wrapper').append('<button class="extraBtn">click me</button>');
+}
