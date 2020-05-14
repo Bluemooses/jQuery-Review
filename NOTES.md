@@ -37,4 +37,6 @@ These are manipulators:
 **GETTERS AND SETTERS**
 These are getters and setters:
 **.val()**
-
+**.text()**
+**.data()**
+**.**
