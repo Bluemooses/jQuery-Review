@@ -16,5 +16,25 @@ $ => creates our jQuery object.'
 **CLASS:** '.some-class' 
 **Descendents:** $('ul li') => this selects all list items in our unordered LIST
 **Multiple Elements:** $('.mic', '.check').append('test'); => 
-**Find Elements:** 
+**Find Elements:** $('#solid').find('.rock');
+
+
+**DOM TRAVERSAL**
+Parents and Children help us access different parts of the DOM
+**parent element** - $('.child').parent();
+parent
+    child
+        grandchild
+            great
+
+**first-level children** - $('.parent').children();
+
+**DOM MANIPULATION**
+These are manipulators:
+**.addClass**
+**.
+
+**GETTERS AND SETTERS**
+These are getters and setters:
+**.val()**
 
