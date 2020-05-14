@@ -6,3 +6,15 @@ There are several different ways to source jQuery
 
 Using the CDN - GOOGLE.  The way we source it through the jQuery 
 IT IS IMPORTANT TO SOURCE IN THE jQUERY before WE SOURCE in THE JS file which is utilizing some jQuery.  The computer reads top down.
+
+
+***jQUERY EVENTS***
+Once the DOM is loaded we can use $ which creates a jQuery object so to break it down we
+$ => creates our jQuery object.'
+**(   )** => selector.  We can **select by ID '#some-id' by class: ('.some-class') by desendants 
+**ID:** '#some-id'
+**CLASS:** '.some-class' 
+**Descendents:** $('ul li') => this selects all list items in our unordered LIST
+**Multiple Elements:** $('.mic', '.check').append('test'); => 
+**Find Elements:** 
+
