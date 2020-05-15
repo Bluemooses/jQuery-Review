@@ -32,14 +32,20 @@ function handleSubmit() {
     // $('#firstName').val(''); //
     // $('#lastName').val(' '); // here we are getting the inputs and clearing the DOM. 
     personArray.push(personObject);
+
     $('#firstName').val('');
     $('#lastName').val('');
     // $('#firstName').val('YAY!!');
     // setter
-    $('#wrapper').append('<button class="extraBtn">click me</button>');
-
+    // $('#wrapper').append('<button class="extraBtn">click me</button>');
+    displayPeople();
 }
 
+function displayPeople() {
+    console.log("in displayPeople");
+    $('#peopleList').append(`<li>${personArray[0].firstName}`);
+    $('#peopleList').append(`<li>${personArray[0].lastName}`);
+}
 // function personObject(firstName, lastName) {
 //     this.firstName = $('#firstName').val();  AN EXAMPLE OF A CONSTRUCTOR FUNCTION.
 //     this.lastName = $('#lastName').val();
