@@ -1,5 +1,6 @@
 // second event code runs at 
 $(document).ready(onReady);
+let personArray = [];
 
 function onReady() {
     console.log('jQuery is loaded');
@@ -19,13 +20,29 @@ function handleClick() {
 }
 
 function handleSubmit() {
-    let firstName = $('#firstName').val();
-    let lastName = $('#lastName').val();
+    //here we are making a variable of what the user INPUTS
     // getter
-    console.log(firstName, lastName);
 
-
+    let personObject = {
+        firstName: $('#firstName').val(),
+        lastName: $('#lastName').val()
+    }
+    console.log(personObject);
+    console.log('This is the person array!', personArray);
+    // $('#firstName').val(''); //
+    // $('#lastName').val(' '); // here we are getting the inputs and clearing the DOM. 
+    personArray.push(personObject);
+    $('#firstName').val('');
+    $('#lastName').val('');
     // $('#firstName').val('YAY!!');
     // setter
     $('#wrapper').append('<button class="extraBtn">click me</button>');
+
 }
+
+// function personObject(firstName, lastName) {
+//     this.firstName = $('#firstName').val();  AN EXAMPLE OF A CONSTRUCTOR FUNCTION.
+//     this.lastName = $('#lastName').val();
+// };
+
+//For each person being input, we are going to create a person object which we are going to push to an ARRAY.
