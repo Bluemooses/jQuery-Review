@@ -1,54 +1,66 @@
 // second event code runs at 
 $(document).ready(onReady);
-let personArray = [];
 
 function onReady() {
     console.log('jQuery is loaded');
     $('#hello').append('Welcome to my Page!');
     // $('#hello').css('color', 'red');
     $('#hello').addClass('blue');
-    $('#submit').on('click', handleSubmit); //attachs a click event to #submit
-    $('#wrapper').on('click', '.extraBtn', handleClick); //attachs a click event to extraBtn via descendent selector..
+    // attach click event to #submit
+    $('#submit').on('click', handleSubmit);
+    //attaching click event to .extraBtn via descendent selector
+    $('#wrapper').on('click', '.extraBtn', handleClick);
+    $('#peopleList').on('click', '.deleteBtn', deleteItem);
 }
+
+function deleteItem() {
+    console.log('in delete');
+}
+
 
 // 1st event code runs at
 console.log("hello");
 
 function handleClick() {
     console.log("button clicked!!");
-    $(this).addClass('blue');
+    $(this).toggleClass('blue');
 }
+
+let personArray = [];
 
 function handleSubmit() {
-    //here we are making a variable of what the user INPUTS
+    // let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
     // getter
-
     let personObject = {
         firstName: $('#firstName').val(),
-        lastName: $('#lastName').val()
+        lastName: lastName,
     }
-    console.log(personObject);
-    console.log('This is the person array!', personArray);
-    // $('#firstName').val(''); //
-    // $('#lastName').val(' '); // here we are getting the inputs and clearing the DOM. 
+    // take the firstName and lastName vals, and create a person object with those
+    // console.log("this is the person object", personObject);
     personArray.push(personObject);
-
+    // push personObject to an array that persists
+    console.log('this the the array', personArray);
     $('#firstName').val('');
     $('#lastName').val('');
-    // $('#firstName').val('YAY!!');
     // setter
     // $('#wrapper').append('<button class="extraBtn">click me</button>');
-    displayPeople();
+    displayPeople(personArray);
 }
 
-function displayPeople() {
+function displayPeople(arrayParam) {
+    $('#peopleList').empty();
     console.log("in displayPeople");
-    $('#peopleList').append(`<li>${personArray[0].firstName}`);
-    $('#peopleList').append(`<li>${personArray[0].lastName}`);
+    for (let i = 0; i < arrayParam.length; i++) {
+        $('#peopleList').append(`
+        <li>${arrayParam[i].firstName} 
+            <button class="deleteBtn">delete</button>
+        </li>`)
+    }
 }
-// function personObject(firstName, lastName) {
-//     this.firstName = $('#firstName').val();  AN EXAMPLE OF A CONSTRUCTOR FUNCTION.
-//     this.lastName = $('#lastName').val();
-// };
 
-//For each person being input, we are going to create a person object which we are going to push to an ARRAY.
+function deleteItem() {
+    console.log('in delete');
+    $(this).parent().remove();
+    //remove that person from the DOM on DELETE ITEM.
+}
